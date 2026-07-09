@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'motion/react';
 import {
-  Car, Activity, Disc, BatteryWarning, Fuel, Truck,
+  Car, Activity, Disc, BatteryWarning, Fuel, Truck, User,
   KeyRound, Siren, CheckCircle, ArrowRight, Shield,
-  MapPin, Star, ClipboardList, Clock,
+  MapPin, Star, ClipboardList, Clock, Wrench,
 } from 'lucide-react';
 import heroBg from '../../imports/pngtree-auto-mechanic-working-in-garage-repair-service-image_15647939.jpg';
 
@@ -18,55 +18,32 @@ const services = [
   {
     icon: Car,
     num: '01',
-    title: 'Vehicle Breakdown Assistance',
-    desc: 'Unexpected vehicle problems can happen anywhere. Sherix connects you with nearby verified providers who can inspect your vehicle, identify the issue, and help you get back on the road as quickly as possible.',
+    title: 'Roadside Assistance',
+    desc: 'When your vehicle breaks down unexpectedly, Sherix connects you with nearby verified mechanics who can inspect, diagnose and resolve issues wherever possible, helping you get back on the road with confidence.',
   },
   {
     icon: Activity,
     num: '02',
     title: 'Vehicle Diagnostics',
-    desc: 'Not sure what\'s wrong with your vehicle? Request a diagnostic inspection and receive a professional assessment before deciding on any repairs.',
+    desc: 'When you’re unsure what’s wrong with your vehicle, Sherix makes it easy to request a professional diagnostic inspection so you can understand the problem before any repairs begin.',
   },
   {
-    icon: Disc,
+    icon: User,
     num: '03',
-    title: 'Flat Tyre Assistance',
-    desc: 'Whether your tyre needs changing or minor roadside repair, Sherix helps you find qualified professionals who can get you moving safely again.',
+    title: 'Verified Mechanics',
+    desc: 'Every mechanic on Sherix is carefully verified before joining the platform, giving you access to trusted professionals committed to quality workmanship and dependable service.',
   },
   {
-    icon: BatteryWarning,
+    icon: Wrench,
     num: '04',
-    title: 'Battery Assistance',
-    desc: 'If your vehicle won\'t start because of a battery problem, request jump-start assistance or battery support from a nearby verified provider.',
+    title: 'Spare Parts Marketplace - (Coming Soon...)',
+    desc: 'Purchase genuine spare parts from trusted vendors through Sherix. Compare options with confidence and find the right parts for your vehicle—all in one place.',
   },
-  {
-    icon: Fuel,
-    num: '05',
-    title: 'Fuel Delivery',
-    desc: 'Running out of fuel doesn\'t have to end your journey. Request emergency fuel delivery directly to your location.',
-  },
-  {
-    icon: Truck,
-    num: '06',
-    title: 'Towing Services',
-    desc: 'When roadside repairs aren\'t possible, Sherix helps arrange professional towing to your preferred workshop or destination.',
-  },
-  {
-    icon: KeyRound,
-    num: '07',
-    title: 'Lockout Assistance',
-    desc: 'Locked your keys inside your vehicle? Where available, Sherix connects you with professionals who can assist safely and efficiently.',
-  },
-  {
-    icon: Siren,
-    num: '08',
-    title: 'Emergency Roadside Support',
-    desc: 'From unexpected roadside situations to urgent vehicle issues, Sherix helps you access trusted assistance whenever you need it.',
-  },
+ 
 ];
 
 const guarantees = [
-  { icon: Shield,       text: 'Verified roadside service providers' },
+  { icon: Shield,       text: 'Verified mechanics and trusted automotive professionals' },
   { icon: ClipboardList,text: 'Estimated price range before inspection' },
   { icon: CheckCircle,  text: 'Quotation approval before repairs begin' },
   { icon: MapPin,       text: 'Real-time provider tracking' },
@@ -121,15 +98,15 @@ export function ServicePage() {
               className="text-white max-w-2xl"
               style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.06, letterSpacing: '-0.035em' }}
             >
-              Professional roadside<br />
-              assistance, <span className="text-red-400">designed to<br />keep you moving.</span>
+              Trusted automotive<br />
+              support, <span className="text-red-400">Whenever<br />you need it.</span>
             </motion.h1>
             <motion.p
               variants={rise}
               className="mt-5 text-white/60 max-w-lg leading-relaxed"
               style={{ fontSize: '1.05rem' }}
             >
-              Sherix connects you with verified roadside service providers ready to assist when you need help most — transparently, reliably, in real time.
+              Sherix connects drivers with verified mechanics and trusted automotive professionals whenever vehicle problems arise. From unexpected breakdowns to professional diagnostics, every request is managed through one platform designed to make getting help faster, simpler and more transparent.
             </motion.p>
             <motion.div variants={rise} className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -161,7 +138,7 @@ export function ServicePage() {
             variants={stagger(0.08)}
           >
             <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-600 mb-5">
-              What We Cover
+              OUR SERVICES
             </motion.p>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-20">
               <motion.h2
@@ -169,10 +146,10 @@ export function ServicePage() {
                 className="text-gray-900 max-w-xl"
                 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                Eight services.<br />One platform. Zero hassle.
+                Four services.<br />One platform. Zero hassle.
               </motion.h2>
               <motion.p variants={rise} className="text-gray-400 text-sm max-w-sm leading-relaxed">
-                Whether you're facing an unexpected breakdown or planning ahead for dependable vehicle support, Sherix has a service ready for you.
+                Sherix brings trusted automotive services together in one place, making it easier to find verified professionals, request assistance and manage vehicle support with confidence.
               </motion.p>
             </div>
           </motion.div>
@@ -242,10 +219,10 @@ export function ServicePage() {
                 className="text-white max-w-xl"
                 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                Every service designed around transparency and confidence.
+                Why Drivers Trust Sherix
               </motion.h2>
               <motion.p variants={rise} className="text-white/35 text-sm max-w-xs leading-relaxed">
-                From the moment you request help to the moment the job is done — you're always informed and in control.
+                Trust is built into every Sherix experience. From verified professionals and transparent pricing to real-time updates throughout your service, every feature is designed to give you confidence whenever your vehicle needs attention.
               </motion.p>
             </div>
 
@@ -295,9 +272,9 @@ export function ServicePage() {
 
               <motion.div variants={rise} className="mt-10 space-y-3">
                 {[
-                  { label: 'Drivers',          sub: 'Get help wherever you are, in minutes.' },
-                  { label: 'Fleet Operators',   sub: 'Explore fleet solutions for your business.' },
-                  { label: 'Service Providers', sub: 'Join the Sherix partner network.' },
+                  { label: 'Drivers',          sub: 'Connect with trusted automotive professionals whenever your vehicle needs expert attention.' },
+                  { label: 'Fleet Operators',   sub: 'Keep your business moving with reliable access to trusted automotive service providers through one platform.' },
+                  { label: 'Service Providers', sub: 'Grow your business, receive more service requests and connect with customers who value trusted automotive expertise.' },
                 ].map(item => (
                   <div key={item.label} className="flex items-center gap-4 py-3 border-b border-gray-100">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
@@ -325,21 +302,17 @@ export function ServicePage() {
                     className="text-white relative z-10"
                     style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.2 }}
                   >
-                    Ready when you need us — 24 hours a day.
+                    Your next breakdown shouldn’t become — 24 hours a day.
                   </h3>
                   {/* Mini stats */}
-                  <div className="mt-6 grid grid-cols-2 gap-3 relative z-10">
-                    {[['< 8 min', 'Avg. response'], ['98%', 'Satisfaction']].map(([v, l]) => (
-                      <div
-                        key={l}
-                        className="rounded-xl px-4 py-3"
-                        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
-                      >
-                        <div className="text-white font-semibold" style={{ fontSize: '1.1rem', letterSpacing: '-0.02em' }}>{v}</div>
-                        <div className="text-white/35 text-xs mt-0.5">{l}</div>
-                      </div>
-                    ))}
-                  </div>
+            <div
+                  className="mt-6 relative z-10 rounded-xl px-4 py-3"
+                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                >
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    Whether you're facing an unexpected vehicle issue or planning routine maintenance, Sherix makes it easy to connect with trusted automotive professionals in just a few taps.
+                  </p>
+                </div>
                 </div>
 
                 {/* White bottom */}
@@ -355,13 +328,7 @@ export function ServicePage() {
                     to="/business"
                     className="flex items-center justify-between w-full px-5 py-3.5 border border-gray-200 hover:border-gray-300 text-gray-700 text-sm font-medium rounded-xl transition-colors"
                   >
-                    <span>Explore Fleet Solutions</span>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </Link>
-                  <Link
-                    to="/partner"
-                    className="flex items-center justify-between w-full px-5 py-3.5 border border-gray-200 hover:border-gray-300 text-gray-700 text-sm font-medium rounded-xl transition-colors"
-                  >
+    
                     <span>Become a Service Partner</span>
                     <ArrowRight className="w-4 h-4 text-gray-400" />
                   </Link>
