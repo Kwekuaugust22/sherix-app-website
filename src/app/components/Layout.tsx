@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, MessageSquare, ArrowUp, MapPin, Facebook, Instagram, Twitter, Users, ChevronDown } from 'lucide-react';
 import logoImg from '../../imports/sherixlogo.png';
 function TikTokIcon({ className }: { className?: string }) {
@@ -35,6 +35,19 @@ export function Layout() {
   const [legalOpen, setLegalOpen] = useState(false);
   const [mobileLegalOpen, setMobileLegalOpen] = useState(false);
   const legalRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    if (location.hash) {
+      const target = document.getElementById(location.hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        return;
+      }
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const onScroll = () => {
