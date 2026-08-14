@@ -237,25 +237,37 @@ export function Layout() {
       <footer className="bg-gray-900 text-gray-300">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    {/* Top row — logo + help center */}
     <div className="flex items-center justify-between py-8 border-b border-gray-800">
       <div className="inline-block bg-white rounded-lg px-3 py-1.5">
         <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" />
       </div>
       <a href="/support" className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-4">
-        Visit Help Center
+        Visit Help Centre
       </a>
     </div>
 
-    {/* Middle row — columns + social + app badges */}
     <div className="py-12 grid grid-cols-2 md:grid-cols-[auto_1fr] gap-12">
-
-      {/* Link columns */}
       <div className="col-span-2 md:col-span-1 grid grid-cols-2 sm:grid-cols-4 gap-8">
         <div>
           <h2 className="text-white text-sm font-semibold mb-4">Company</h2>
           <ul className="space-y-3">
-            {[['About Us', '/about'], ['Services', '/service'], ['Partner Program', '/partner'], ['Business', '/business']].map(([l, href]) => (
+            {[['About Sherix', '/about'], ['Careers', '/contact'], ['Contact Us', '/contact'], ['Blog', '/contact']].map(([l, href]) => (
+              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-white text-sm font-semibold mb-4">Services</h2>
+          <ul className="space-y-3">
+            {[['Mechanical Services', '/service'], ['Auto Electrical Services', '/service'], ['Spare Parts Marketplace (Coming Soon)', '#'], ['Fleet Solutions', '/business']].map(([l, href]) => (
+              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-white text-sm font-semibold mb-4">Partners</h2>
+          <ul className="space-y-3">
+            {[['Become a Service Partner', '/partner'], ['Partner Requirements', '/partner'], ['Partner FAQs', '/faq']].map(([l, href]) => (
               <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
             ))}
           </ul>
@@ -263,77 +275,42 @@ export function Layout() {
         <div>
           <h2 className="text-white text-sm font-semibold mb-4">Support</h2>
           <ul className="space-y-3">
-            {[['Help Center', '/support'], ['Contact Us', '/contact'], ['Live Chat', '#'], ['FAQ', '/support']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Legal</h2>
-          <ul className="space-y-3">
-            {[['Terms of Service', '/terms'], ['Privacy Policy', '/privacy'], ['Cookies Policy', '/cookies']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Get the App</h2>
-          <ul className="space-y-3">
-            {[['App Store', '#'], ['Google Play', '#']].map(([l, href]) => (
+            {[['Help Centre', '/support'], ['Frequently Asked Questions', '/faq'], ['Terms of Service', '/terms'], ['Privacy Policy', '/privacy']].map(([l, href]) => (
               <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
             ))}
           </ul>
         </div>
       </div>
 
-      {/* Social icons + app badges */}
       <div className="col-span-2 md:col-span-1 flex flex-col items-start md:items-end justify-between gap-8">
-        {/* Social icons */}
         <div className="flex gap-3">
           {[
-            { label: 'Facebook', href: '#', icon: Facebook },
-            { label: 'Instagram', href: '#', icon: Instagram },
-            { label: 'X', href: '#', icon: Twitter },
+            { label: 'Facebook', href: 'https://facebook.com', icon: Facebook },
+            { label: 'Instagram', href: 'https://instagram.com', icon: Instagram },
+            { label: 'X', href: 'https://x.com', icon: Twitter },
           ].map(s => (
-            <a key={s.label} href={s.href} aria-label={s.label}
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}
               className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all">
               <s.icon className="w-4 h-4" />
             </a>
           ))}
-          <a href="#" aria-label="TikTok"
+          <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok"
             className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all">
             <TikTokIcon className="w-4 h-4" />
           </a>
         </div>
 
-        {/* Location + app store badges */}
         <div className="flex flex-col items-start md:items-end gap-4">
           <div className="flex items-center gap-1.5 text-sm text-gray-400">
             <MapPin className="w-4 h-4" />
             <span>Accra, Ghana</span>
           </div>
-          <div className="flex gap-3">
-            {['App Store', 'Google Play'].map(s => (
-              <a key={s} href="#"
-                className="px-4 py-2 border border-gray-700 rounded-lg text-xs text-gray-400 hover:border-gray-500 hover:text-white transition-all">
-                {s}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </div>
 
-    {/* Bottom bar — copyright + legal links */}
     <div className="py-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-xs text-gray-500">© 2026 Sherix Technologies Ltd.</p>
-      <ul className="flex items-center gap-6">
-        {[['Privacy', '/privacy'], ['Terms', '/terms'], ['Cookies', '/cookies']].map(([l, href]) => (
-          <li key={l}>
-            <a href={href} className="text-xs text-gray-500 hover:text-white transition-colors">{l}</a>
-          </li>
-        ))}
-      </ul>
+      <p className="text-xs text-gray-500">© 2026 Sherix. All rights reserved.</p>
     </div>
 
   </div>
