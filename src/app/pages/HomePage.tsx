@@ -397,8 +397,8 @@ export function HomePage() {
             <motion.div initial="hidden" animate="show" variants={stagger(0.09)} className="text-left">
               <motion.div variants={fadeIn} className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10" style={{ background: 'rgba(0,0,0,0.18)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', border: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 4px 24px rgba(0,0,0,0.2)' }}>
                 <motion.p variants={fadeUp} transition={{ duration: 0.5 }} className="text-xs tracking-[0.22em] uppercase text-red-400/80 mb-4">DIGITAL VEHICLE ASSISTANCE PLATFORM</motion.p>
-                <motion.h1 variants={fadeUp} transition={{ duration: 0.6 }} className="text-white" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3.5rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.03em' }}>
-                  Vehicle problems shouldn’t interrupt your day.
+                 <motion.h1 variants={fadeUp} transition={{ duration: 0.6 }} className="text-white" style={{ fontSize: 'clamp(1.9rem, 4.5vw, 3.5rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.03em' }}>
+                  Every journey should end at your&nbsp;destination—<span className="text-red-400">not on the side of the road.</span>
                 </motion.h1>
                 <motion.p variants={fadeUp} transition={{ duration: 0.6, delay: 0.05 }} className="text-white/65 leading-relaxed mt-5 max-w-xl" style={{ fontSize: '1.02rem' }}>
                   Vehicle issues can happen at any time. Sherix connects drivers with verified automotive service professionals through one digital platform.

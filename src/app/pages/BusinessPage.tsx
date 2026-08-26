@@ -173,9 +173,14 @@ export function BusinessPage() {
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-red-600/40 to-transparent" />
 
         <motion.div
-          style={{ y: heroY, opacity: heroOpacity }}
+          style={{
+            y: heroY,
+            opacity: heroOpacity,
+            minHeight: 'inherit',
+            paddingTop: '6rem',
+            paddingBottom: '6rem',
+          }}
           className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center"
-          style={{ minHeight: 'inherit', paddingTop: '6rem', paddingBottom: '6rem' }}
         >
           <motion.div initial="hidden" animate="show" variants={stagger(0.1)}>
             {/* Eyebrow */}

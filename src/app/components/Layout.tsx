@@ -234,87 +234,110 @@ export function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-[#111827] text-gray-300">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-white p-2 shadow-sm">
+                <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Professional vehicle support</p>
+              </div>
+            </div>
 
-    <div className="flex items-center justify-between py-8 border-b border-gray-800">
-      <div className="inline-block bg-white rounded-lg px-3 py-1.5">
-        <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" />
-      </div>
-      <a href="/support" className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-4">
-        Visit Help Centre
-      </a>
-    </div>
+            <NavLink
+              to="/support"
+              className="inline-flex items-center justify-center rounded-full border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm font-medium text-red-100 transition-colors hover:border-red-400 hover:bg-red-500/20 hover:text-white"
+            >
+              Visit Help Centre
+            </NavLink>
+          </div>
 
-    <div className="py-12 grid grid-cols-2 md:grid-cols-[auto_1fr] gap-12">
-      <div className="col-span-2 md:col-span-1 grid grid-cols-2 sm:grid-cols-4 gap-8">
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Company</h2>
-          <ul className="space-y-3">
-            {[['About Sherix', '/about'], ['Careers', '/contact'], ['Contact Us', '/contact'], ['Blog', '/contact']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Services</h2>
-          <ul className="space-y-3">
-            {[['Mechanical Services', '/service'], ['Auto Electrical Services', '/service'], ['Spare Parts Marketplace (Coming Soon)', '#'], ['Fleet Solutions', '/business']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Partners</h2>
-          <ul className="space-y-3">
-            {[['Become a Service Partner', '/partner'], ['Partner Requirements', '/partner'], ['Partner FAQs', '/faq']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Support</h2>
-          <ul className="space-y-3">
-            {[['Help Centre', '/support'], ['Frequently Asked Questions', '/faq'], ['Terms of Service', '/terms'], ['Privacy Policy', '/privacy']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-      </div>
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Company</h2>
+              <ul className="space-y-3 text-sm">
+                <li><NavLink to="/about" className="text-gray-400 transition-colors hover:text-red-400">About</NavLink></li>
+                <li><NavLink to="/service" className="text-gray-400 transition-colors hover:text-red-400">Services</NavLink></li>
+                <li><NavLink to="/partner" className="text-gray-400 transition-colors hover:text-red-400">Join the Sherix Network</NavLink></li>
+                <li><NavLink to="/contact" className="text-gray-400 transition-colors hover:text-red-400">Contact</NavLink></li>
+              </ul>
+            </div>
 
-      <div className="col-span-2 md:col-span-1 flex flex-col items-start md:items-end justify-between gap-8">
-        <div className="flex gap-3">
-          {[
-            { label: 'Facebook', href: 'https://facebook.com', icon: Facebook },
-            { label: 'Instagram', href: 'https://instagram.com', icon: Instagram },
-            { label: 'X', href: 'https://x.com', icon: Twitter },
-          ].map(s => (
-            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}
-              className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all">
-              <s.icon className="w-4 h-4" />
-            </a>
-          ))}
-          <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok"
-            className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all">
-            <TikTokIcon className="w-4 h-4" />
-          </a>
-        </div>
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Support</h2>
+              <ul className="space-y-3 text-sm">
+                <li><NavLink to="/support" className="text-gray-400 transition-colors hover:text-red-400">Help Center</NavLink></li>
+                <li><NavLink to="/faq" className="text-gray-400 transition-colors hover:text-red-400">Frequently Asked Questions</NavLink></li>
+                <li><NavLink to="/support" className="text-gray-400 transition-colors hover:text-red-400">Safety</NavLink></li>
+                <li><NavLink to="/contact" className="text-gray-400 transition-colors hover:text-red-400">Contact Support</NavLink></li>
+              </ul>
+            </div>
 
-        <div className="flex flex-col items-start md:items-end gap-4">
-          <div className="flex items-center gap-1.5 text-sm text-gray-400">
-            <MapPin className="w-4 h-4" />
-            <span>Accra, Ghana</span>
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Legal</h2>
+              <ul className="space-y-3 text-sm">
+                <li><NavLink to="/terms" className="text-gray-400 transition-colors hover:text-red-400">Terms of Service</NavLink></li>
+                <li><NavLink to="/privacy" className="text-gray-400 transition-colors hover:text-red-400">Privacy Policy</NavLink></li>
+                <li><NavLink to="/cookies" className="text-gray-400 transition-colors hover:text-red-400">Cookie Policy</NavLink></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Get the App</h2>
+              <ul className="space-y-3 text-sm">
+                <li><a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer" className="text-gray-400 transition-colors hover:text-red-400">App Store</a></li>
+                <li><a href="https://play.google.com/store" target="_blank" rel="noreferrer" className="text-gray-400 transition-colors hover:text-red-400">Google Play</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Social</h2>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { label: 'Facebook', href: 'https://www.facebook.com', icon: Facebook },
+                  { label: 'Instagram', href: 'https://www.instagram.com', icon: Instagram },
+                  { label: 'X', href: 'https://x.com', icon: Twitter },
+                  { label: 'TikTok', href: 'https://www.tiktok.com', icon: TikTokIcon },
+                ].map(social => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition-all hover:border-red-500 hover:bg-red-500/10 hover:text-red-400"
+                  >
+                    {social.icon === TikTokIcon ? (
+                      <TikTokIcon className="h-4 w-4" />
+                    ) : (
+                      <social.icon className="h-4 w-4" />
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <MapPin className="h-4 w-4 text-red-400" />
+              <span>Headquarters</span>
+              <span className="text-gray-500">•</span>
+              <span>Accra, Ghana</span>
+            </div>
+
+            <div className="text-sm text-gray-400">© 2026 Sherix Technologies Ltd. All rights reserved.</div>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <NavLink to="/privacy" className="transition-colors hover:text-red-400">Privacy</NavLink>
+            <NavLink to="/terms" className="transition-colors hover:text-red-400">Terms</NavLink>
+            <NavLink to="/cookies" className="transition-colors hover:text-red-400">Cookies</NavLink>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div className="py-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-xs text-gray-500">© 2026 Sherix. All rights reserved.</p>
-    </div>
-
-  </div>
-</footer>
+      </footer>
       {/* AI Chatbot widget */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
         {chatOpen && (
