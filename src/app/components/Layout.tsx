@@ -82,21 +82,24 @@ export function Layout() {
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
       <div className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/90 backdrop-blur-md shadow-[0_1px_0_rgba(15,23,42,0.04)]">
         <header className={`transition-all duration-300 ${scrolled ? 'shadow-sm shadow-red-100/60' : ''}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
-            {/* Logo */}
-            <NavLink to="/" className="flex items-center shrink-0 py-2">
-              <img src={logoImg} alt="Sherix" className="h-28 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
-            </NavLink>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center relative">
+            {/* CTA buttons - far left */}
+            <div className="hidden md:flex items-center gap-2 absolute left-4 sm:left-6 lg:left-8">
+              <NavLink to="/partner" className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition-all shadow-sm shadow-red-200/80 hover:shadow-red-200">
+                <Users className="w-3.5 h-3.5" />
+                Become a Service Provider
+              </NavLink>
+            </div>
 
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-1.5">
+            {/* Desktop nav - centered */}
+            <nav className="hidden md:flex items-center gap-1 mx-auto">
               {navLinks.map(link => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `px-4 py-2.5 rounded-full text-sm font-medium tracking-[0.01em] transition-all ${isActive ? 'text-red-600 bg-red-50 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
+                    `px-3.5 py-2 rounded-full text-xs font-medium tracking-[0.02em] uppercase transition-all ${isActive ? 'text-red-600 bg-red-50 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
                   }
                 >
                   {link.label}
@@ -131,13 +134,10 @@ export function Layout() {
               </div>
             </nav>
 
-            {/* CTA buttons */}
-            <div className="hidden md:flex items-center gap-2">
-              <NavLink to="/partner" className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition-all shadow-sm shadow-red-200/80 hover:shadow-red-200">
-                <Users className="w-3.5 h-3.5" />
-                Become a Service Provider
-              </NavLink>
-            </div>
+            {/* Logo - far right */}
+            <NavLink to="/" className="hidden md:flex items-center shrink-0 py-2 absolute right-4 sm:right-6 lg:right-8">
+              <img src={logoImg} alt="Sherix" className="h-20 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
+            </NavLink>
 
             {/* Mobile toggle */}
             <button

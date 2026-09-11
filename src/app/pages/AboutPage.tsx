@@ -248,15 +248,15 @@ export function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={vp}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-3xl p-10 overflow-hidden"
+              className="group relative rounded-3xl p-10 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-red-900/20 hover:bg-red-600"
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
             >
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-red-600/12 rounded-full blur-2xl" />
-              <p className="text-xs tracking-[0.2em] uppercase text-red-500/60 mb-5">Mission</p>
-              <p className="mt-4 text-white/50 leading-relaxed text-sm">
+              <div className="absolute -top-4 -right-4 w-32 h-32 bg-red-600/12 rounded-full blur-2xl transition-colors duration-300 group-hover:bg-red-900/20" />
+              <p className="text-xs tracking-[0.2em] uppercase text-red-500/60 mb-5 transition-colors duration-300 group-hover:text-red-100/80">Mission</p>
+              <p className="mt-4 text-white/50 leading-relaxed text-sm transition-colors duration-300 group-hover:text-red-50/90">
                 To remove uncertainty from the automotive service experience through thoughtful technology and better service experiences.
               </p>
-              <div className="mt-8 h-px bg-gradient-to-r from-red-600/40 to-transparent" />
+              <div className="mt-8 h-px bg-gradient-to-r from-red-600/40 to-transparent transition-colors duration-300 group-hover:from-red-100/60" />
             </motion.div>
 
             <motion.div
@@ -264,14 +264,15 @@ export function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={vp}
               transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-3xl p-10 overflow-hidden bg-red-600"
+              className="group relative rounded-3xl p-10 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-red-900/20 hover:bg-red-600"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
             >
-              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-red-900/40 rounded-full blur-3xl" />
-              <p className="text-xs tracking-[0.2em] uppercase text-red-200/70 mb-5 relative z-10">Vision</p>
-              <p className="mt-4 text-red-100/75 leading-relaxed text-sm relative z-10">
+              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-red-600/12 rounded-full blur-3xl transition-colors duration-300 group-hover:bg-red-900/30" />
+              <p className="text-xs tracking-[0.2em] uppercase text-red-500/60 mb-5 relative z-10 transition-colors duration-300 group-hover:text-red-100/80">Vision</p>
+              <p className="mt-4 text-white/50 leading-relaxed text-sm relative z-10 transition-colors duration-300 group-hover:text-red-50/90">
                 A future where accessing professional automotive services is simple, transparent, and trusted across Africa.
               </p>
-              <div className="mt-8 h-px bg-white/20 relative z-10" />
+              <div className="mt-8 h-px bg-gradient-to-r from-red-600/40 to-transparent relative z-10 transition-colors duration-300 group-hover:from-red-100/60" />
             </motion.div>
 
             <motion.div
@@ -279,11 +280,11 @@ export function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={vp}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl p-10"
+              className="group rounded-3xl p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-red-900/20 hover:bg-red-600"
               style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
             >
-              <p className="text-xs tracking-[0.2em] uppercase text-red-500/60 mb-3">Looking Ahead</p>
-              <p className="text-white/65 leading-relaxed text-sm">
+              <p className="text-xs tracking-[0.2em] uppercase text-red-500/60 mb-3 transition-colors duration-300 group-hover:text-red-100/80">Looking Ahead</p>
+              <p className="text-white/65 leading-relaxed text-sm transition-colors duration-300 group-hover:text-red-50/90">
                 The future of Sherix extends beyond connecting drivers with automotive professionals. As Sherix grows, we’ll continue creating solutions that make vehicle ownership simpler, more connected, and better supported across Africa.
               </p>
             </motion.div>
