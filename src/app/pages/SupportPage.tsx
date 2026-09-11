@@ -40,6 +40,19 @@ export function SupportPage() {
   const [ticketSubmitted, setTicketSubmitted] = useState(false);
   const [ticket, setTicket] = useState({ name: '', email: '', subject: '', category: '', message: '' });
 
+  const handleEmailSupport = () => {
+    window.location.href = 'mailto:support@sherix.app';
+  };
+
+  const handleCallSupport = () => {
+    window.location.href = 'tel:+233302000000';
+  };
+
+  const handlePartnerSupport = () => {
+    const form = document.getElementById('support-request-form');
+    form?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div>
       <section className="bg-gradient-to-br from-red-900 to-red-800 text-white py-20">
@@ -118,6 +131,7 @@ export function SupportPage() {
             </div>
           ) : (
             <form
+              id="support-request-form"
               onSubmit={e => {
                 e.preventDefault();
                 setTicketSubmitted(true);
@@ -154,7 +168,8 @@ export function SupportPage() {
                 <select
                   value={ticket.category}
                   onChange={e => setTicket(t => ({ ...t, category: e.target.value }))}
-                  className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-red-400 focus:outline-none"
+                  className="w-full min-h-[42px] appearance-none rounded-lg border border-gray-200 bg-white px-3 py-2.5 pr-10 text-sm text-gray-900 focus:border-red-400 focus:outline-none"
+                  style={{ backgroundImage: "linear-gradient(45deg, transparent 50%, #9ca3af 50%), linear-gradient(135deg, #9ca3af 50%, transparent 50%)", backgroundPosition: 'calc(100% - 16px) calc(50% - 2px), calc(100% - 11px) calc(50% - 2px)', backgroundSize: '5px 5px, 5px 5px', backgroundRepeat: 'no-repeat' }}
                 >
                   <option value="">Select a request type</option>
                   <option>Service request</option>
@@ -202,16 +217,24 @@ export function SupportPage() {
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.04em] text-gray-900">Other ways to reach us</h2>
           </div>
 
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-4xl gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {contactOptions.map(option => (
-              <div key={option.title} className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md">
+              <div key={option.title} className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md">
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-50">
                   <option.icon className="h-6 w-6 text-red-600" />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-gray-900">{option.title}</h3>
                 <p className="mb-1 text-sm font-medium text-red-600">{option.detail}</p>
                 <p className="mb-4 text-xs text-gray-500">{option.resp}</p>
-                <button className="rounded-lg border border-red-600 px-4 py-2 text-sm font-medium text-red-600 transition-colors hover:bg-red-50">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (option.title === 'Email Support') handleEmailSupport();
+                    if (option.title === 'Phone Support') handleCallSupport();
+                    if (option.title === 'Service Partner Support') handlePartnerSupport();
+                  }}
+                  className="mt-auto w-full rounded-lg border border-red-600 px-4 py-2.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50"
+                >
                   {option.action}
                 </button>
               </div>
