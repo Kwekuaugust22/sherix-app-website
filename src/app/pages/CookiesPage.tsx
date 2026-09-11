@@ -79,14 +79,15 @@ export function CookiesPage() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <section className="bg-gray-900 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-gray-400 text-sm font-semibold uppercase tracking-wide">Policies & Legal Documents</span>
-          <h1 className="text-4xl font-bold mt-2 mb-2">Cookies Policy</h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mt-4">
-            <span>Last updated: 11 June 2026</span>
-            <span>•</span>
-            <span>Privacy & cookie compliance</span>
+      <section className="bg-gray-950 text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '26px 26px' }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[300px] bg-red-700/10 rounded-full blur-[110px]" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="text-gray-300 text-xs font-semibold uppercase tracking-[0.22em]">Policies & Legal Documents</span>
+          <h1 className="text-4xl font-bold mt-3 mb-2 leading-tight">Cookies Policy</h1>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-300 mt-4">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Last updated: 11 June 2026</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Privacy & cookie compliance</span>
           </div>
         </div>
       </section>

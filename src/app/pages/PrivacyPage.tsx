@@ -136,7 +136,7 @@ export function PrivacyPage() {
       {/* ─── Header ─── */}
       <section className="bg-gray-950 pt-16 pb-14 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[400px] h-[300px] bg-red-700/8 rounded-full blur-[100px]" />
+          <div className="absolute top-0 right-0 w-[420px] h-[320px] bg-red-700/10 rounded-full blur-[110px]" />
           <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
@@ -146,25 +146,23 @@ export function PrivacyPage() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-7 h-7 rounded-lg bg-red-600/20 border border-red-600/25 flex items-center justify-center">
-                <Shield className="w-3.5 h-3.5 text-red-500" />
+              <div className="w-8 h-8 rounded-xl bg-red-600/15 border border-red-600/20 flex items-center justify-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                <Shield className="w-3.5 h-3.5 text-red-400" />
               </div>
-              <span className="text-xs tracking-[0.2em] uppercase text-white/40">Legal — Privacy</span>
+              <span className="text-xs tracking-[0.22em] uppercase text-white/45">Policies & Legal Documents</span>
             </div>
             <h1
               className="text-white"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+              style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.08 }}
             >
               Privacy Policy
             </h1>
-            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/35">
-              <span>Last updated: 11 June 2026</span>
-              <span className="hidden sm:inline">·</span>
-              <span>Effective: 11 June 2026</span>
-              <span className="hidden sm:inline">·</span>
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/40">
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Last updated: 11 June 2026</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Effective: 11 June 2026</span>
               <button
                 onClick={() => window.print()}
-                className="text-red-400/70 hover:text-red-400 transition-colors underline underline-offset-2"
+                className="rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-red-300 hover:bg-red-500/15 hover:text-red-200 transition-colors"
               >
                 Print this page
               </button>
@@ -233,8 +231,8 @@ export function PrivacyPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-12 p-6 rounded-2xl"
-              style={{ background: '#fafafa', border: '1px solid #f0f0f0' }}
+              className="mb-12 p-6 rounded-2xl shadow-[0_18px_35px_rgba(15,23,42,0.04)]"
+              style={{ background: 'linear-gradient(180deg, #fafafa, #ffffff)', border: '1px solid #f1f1f1' }}
             >
               <p className="text-sm text-gray-500 leading-relaxed">
                 This Privacy Policy explains how Sherix collects, uses, and protects your personal information when you use our roadside assistance platform. By using Sherix, you agree to the practices described in this policy.
