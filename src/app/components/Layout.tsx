@@ -228,7 +228,7 @@ export function Layout() {
             </NavLink>
           </div>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
             <div>
               <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Company</h2>
               <ul className="space-y-3 text-sm">
@@ -264,33 +264,6 @@ export function Layout() {
                 <li><a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer" className="text-gray-400 transition-colors hover:text-red-400">App Store</a></li>
                 <li><a href="https://play.google.com/store" target="_blank" rel="noreferrer" className="text-gray-400 transition-colors hover:text-red-400">Google Play</a></li>
               </ul>
-            </div>
-
-            <div>
-              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Social</h2>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { label: 'Facebook', href: 'https://www.facebook.com', icon: Facebook },
-                  { label: 'Instagram', href: 'https://www.instagram.com', icon: Instagram },
-                  { label: 'X', href: 'https://x.com', icon: Twitter },
-                  { label: 'TikTok', href: 'https://www.tiktok.com', icon: TikTokIcon },
-                ].map(social => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={social.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition-all hover:border-red-500 hover:bg-red-500/10 hover:text-red-400"
-                  >
-                    {social.icon === TikTokIcon ? (
-                      <TikTokIcon className="h-4 w-4" />
-                    ) : (
-                      <social.icon className="h-4 w-4" />
-                    )}
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
 
