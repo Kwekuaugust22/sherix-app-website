@@ -2,21 +2,13 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Mail, ArrowRight, Send, CheckCircle,
-  Headphones, Building2, Wrench, Facebook, Instagram, Twitter,
+  Headphones, Building2, Wrench,
 } from 'lucide-react';
 import heroBg from '../../imports/Breakdown-800x480.jpg';
 
 const vp = { once: true, amount: 0.12 };
 const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } };
 const stagger = (d = 0.09) => ({ show: { transition: { staggerChildren: d } } });
-
-function TikTokIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.27 8.27 0 004.84 1.55V6.85a4.85 4.85 0 01-1.07-.16z" />
-    </svg>
-  );
-}
 
 const enquiryTypes = [
   {
@@ -256,46 +248,6 @@ export function ContactPage() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-28 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-          <motion.div initial="hidden" whileInView="show" viewport={vp} variants={stagger(0.08)}>
-            <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-600 mb-5">
-              Follow Sherix
-            </motion.p>
-            <motion.h2
-              variants={rise}
-              className="text-gray-900 mb-4"
-              style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
-            >
-              Stay connected with Sherix.
-            </motion.h2>
-            <motion.p variants={rise} className="text-gray-500 text-sm leading-relaxed max-w-2xl">
-              Stay connected with Sherix for product updates, vehicle ownership tips, new features, and company announcements.
-            </motion.p>
-
-            <motion.div variants={rise} className="mt-8 flex flex-wrap gap-3">
-              {[
-                { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com' },
-                { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com' },
-                { icon: Twitter, label: 'X', href: 'https://x.com' },
-                { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com' },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={social.label}
-                  className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-600 hover:border-red-200 hover:bg-red-50 transition-all duration-200"
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
-              ))}
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
