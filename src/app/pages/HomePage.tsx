@@ -380,6 +380,34 @@ export function HomePage() {
   const bgY      = useTransform(scrollY, [0, 700], [0, -120]);
   const bgOpacity = useTransform(scrollY, [0, 500], [0.9, 0.3]);
 
+  const [whySherixRef, whySherixApi] = useEmblaCarousel({
+    loop: true,
+    align: 'start',
+    slidesToScroll: 1,
+    speed: 18,
+  });
+  const [whySherixIndex, setWhySherixIndex] = useState(0);
+
+  useEffect(() => {
+    if (!whySherixApi) return;
+
+    const onSelect = () => setWhySherixIndex(whySherixApi.selectedScrollSnap());
+    whySherixApi.on('select', onSelect);
+    onSelect();
+
+    const autoplay = window.setInterval(() => {
+      whySherixApi.scrollNext();
+    }, 4500);
+
+    return () => {
+      whySherixApi.off('select', onSelect);
+      window.clearInterval(autoplay);
+    };
+  }, [whySherixApi]);
+
+  const scrollWhySherixPrev = useCallback(() => whySherixApi?.scrollPrev(), [whySherixApi]);
+  const scrollWhySherixNext = useCallback(() => whySherixApi?.scrollNext(), [whySherixApi]);
+
   return (
     <div>
 
@@ -430,21 +458,37 @@ export function HomePage() {
         </div>
       </section>
 
-      <div className="h-10 bg-white" aria-hidden="true" />
-
       {/* ════════════ WHY SHERIX ════════════ */}
-      <section className="relative py-24 bg-gray-950 overflow-hidden">
+      <section className="relative -mt-px py-16 bg-gray-950 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <img src={introBg} alt="" aria-hidden className="w-full h-full object-cover object-center" style={{ opacity: 0.45, filter: 'brightness(0.4) saturate(0.7)' }} />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial="hidden" whileInView="show" viewport={vp} variants={staggerRise(0.08)} className="mb-12">
+          <motion.div initial="hidden" whileInView="show" viewport={vp} variants={staggerRise(0.08)} className="mb-10">
             <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-500/70 mb-5">Why Sherix</motion.p>
-            <motion.h2 variants={rise} className="text-white max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
-              Vehicle assistance built around trust, transparency, and control.
-            </motion.h2>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <motion.h2 variants={rise} className="text-white max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+                Vehicle assistance built around trust, transparency, and control.
+              </motion.h2>
+              <div className="flex items-center gap-2 self-end">
+                <button
+                  onClick={scrollWhySherixPrev}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:border-red-400 hover:text-red-400"
+                  aria-label="Previous feature"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={scrollWhySherixNext}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:border-red-400 hover:text-red-400"
+                  aria-label="Next feature"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
             <motion.p variants={rise} className="mt-5 text-white/60 text-sm leading-relaxed max-w-3xl">
               Whether you need routine maintenance, diagnostics, or emergency assistance, finding a trusted service provider shouldn’t be difficult.
             </motion.p>
@@ -453,15 +497,35 @@ export function HomePage() {
             </motion.p>
           </motion.div>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="overflow-hidden" ref={whySherixRef}>
+            <div className="flex gap-4 md:gap-5">
+              {whySherixFeatures.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={vp2}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="min-w-full md:min-w-[48%] xl:min-w-[24%] flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                >
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-red-600/15 text-red-500">
+                    <feature.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mb-3 text-lg font-semibold text-white">{feature.title}</h3>
+                  <p className="text-sm leading-relaxed text-white/60">{feature.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-2">
             {whySherixFeatures.map((feature, index) => (
-              <motion.div key={feature.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp2} transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }} className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-red-600/15 text-red-500">
-                  <feature.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mb-3 text-lg font-semibold text-white">{feature.title}</h3>
-                <p className="text-sm leading-relaxed text-white/60">{feature.desc}</p>
-              </motion.div>
+              <button
+                key={feature.title}
+                onClick={() => whySherixApi?.scrollTo(index)}
+                aria-label={`Go to ${feature.title}`}
+                className={`h-2.5 rounded-full transition-all ${index === whySherixIndex ? 'w-8 bg-red-500' : 'w-2.5 bg-white/30 hover:bg-white/50'}`}
+              />
             ))}
           </div>
         </div>

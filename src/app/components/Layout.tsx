@@ -80,49 +80,23 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
-      {/* Campaign Bar + Nav — sticky together */}
-      <div className="sticky top-0 z-50">
-        {/* Campaign Bar */}
-        <div className="bg-red-600 text-white text-xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
-            <div className="flex items-center gap-1.5 text-red-100">
-              <MapPin className="w-3.5 h-3.5 shrink-0" />
-              <span>Accra, Ghana</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="text-red-200 hover:text-white transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="Instagram" className="text-red-200 hover:text-white transition-colors">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="X" className="text-red-200 hover:text-white transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="TikTok" className="text-red-200 hover:text-white transition-colors">
-                <TikTokIcon className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Nav */}
-        <header className={`bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md border-b border-gray-100' : 'border-b border-gray-100'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between">
+      <div className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/90 backdrop-blur-md shadow-[0_1px_0_rgba(15,23,42,0.04)]">
+        <header className={`transition-all duration-300 ${scrolled ? 'shadow-sm shadow-red-100/60' : ''}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
             {/* Logo */}
-            <NavLink to="/" className="flex items-center shrink-0">
-              <img src={logoImg} alt="Sherix" className="h-30 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
+            <NavLink to="/" className="flex items-center shrink-0 py-2">
+              <img src={logoImg} alt="Sherix" className="h-28 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
             </NavLink>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1.5">
               {navLinks.map(link => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'text-red-600 bg-red-50' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`
+                    `px-4 py-2.5 rounded-full text-sm font-medium tracking-[0.01em] transition-all ${isActive ? 'text-red-600 bg-red-50 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
                   }
                 >
                   {link.label}
@@ -159,7 +133,7 @@ export function Layout() {
 
             {/* CTA buttons */}
             <div className="hidden md:flex items-center gap-2">
-              <NavLink to="/partner" className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors shadow-sm shadow-red-200">
+              <NavLink to="/partner" className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition-all shadow-sm shadow-red-200/80 hover:shadow-red-200">
                 <Users className="w-3.5 h-3.5" />
                 Become a Service Provider
               </NavLink>
