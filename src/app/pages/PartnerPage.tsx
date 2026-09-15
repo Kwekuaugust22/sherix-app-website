@@ -8,31 +8,28 @@ const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transiti
 const stagger = (d = 0.09) => ({ show: { transition: { staggerChildren: d } } });
 
 const benefits = [
-  { icon: Users,         num: '01', title: 'More Customers',       desc: 'Receive service requests from nearby drivers and businesses who need your expertise — no cold calling, no advertising spend.' },
-  { icon: MapPin,        num: '02', title: 'Work Near You',        desc: 'Accept requests that fit your service area and availability. You decide when and where you work.' },
-  { icon: ClipboardList, num: '03', title: 'Manage Jobs Digitally',desc: 'View requests, update job progress, submit quotations, and complete services through the Sherix platform.' },
-  { icon: Star,          num: '04', title: 'Build Trust',          desc: 'Earn ratings and reviews from customers to strengthen your reputation and attract more work.' },
-  { icon: TrendingUp,    num: '05', title: 'Business Growth',      desc: 'Spend less time looking for customers and more time doing the work you do best.' },
-  { icon: Award,         num: '06', title: 'Professional Platform', desc: 'Join a network committed to quality, transparency, and customer satisfaction.' },
+  { icon: Users,         num: '01', title: 'Receive Quality Service Requests',      desc: 'Connect with customers looking for trusted automotive professionals through the Sherix platform.' },
+  { icon: MapPin,        num: '02', title: 'Manage Business From One Platform',     desc: 'Accept or decline service requests, manage active jobs, and keep your work organised from one platform.' },
+  { icon: ClipboardList, num: '03', title: 'Build Your Reputation',                 desc: 'Deliver quality service, receive customer ratings, and build credibility that helps attract more opportunities over time.' },
+  { icon: Star,          num: '04', title: 'Track Your Performance',                desc: 'Monitor completed jobs, earnings, customer ratings, and business performance through your provider dashboard.' },
+  { icon: TrendingUp,    num: '05', title: 'Transparent Payments',                  desc: 'Receive payments for completed services through the Sherix platform, with commission managed according to Sherix’s payment policies.' },
+  { icon: Award,         num: '06', title: 'Grow With Confidence',                  desc: 'As Sherix expands, you’ll continue to benefit from new tools and platform improvements designed to support automotive professionals and businesses.' },
 ];
 
 const whoCanJoin = [
-  'Automotive mechanics',
-  'Auto electricians',
-  'Tyre specialists',
-  'Battery specialists',
-  'Towing operators',
-  'Mobile technicians',
-  'Vehicle diagnostic specialists',
-  'Roadside assistance companies',
+  'Independent Mechanics',
+  'Registered Garages',
+  'Auto Electricians',
+  'Tyre Specialists',
+  'Battery Specialists',
+  'Fleet Maintenance Companies',
 ];
 
 const howSteps = [
-  { n: '01', title: 'Apply Online',          desc: 'Complete the short online application. It takes under three minutes.' },
-  { n: '02', title: 'Submit Documents',       desc: 'Upload your business registration and identification documents for verification.' },
-  { n: '03', title: 'Sherix Verification',    desc: 'Our team reviews your credentials and verifies your qualifications and business details.' },
-  { n: '04', title: 'Approval & Onboarding', desc: 'Receive your approval, complete onboarding, and activate your provider profile.' },
-  { n: '05', title: 'Start Accepting Jobs',   desc: 'Go live on the Sherix platform and begin receiving roadside assistance requests immediately.' },
+  { n: '01', title: 'Create Your Account', desc: 'Download the Sherix Provider App if you’re an independent service provider, or register your business through the Service Provider Portal.' },
+  { n: '02', title: 'Submit Your Professional Details', desc: 'Provide the required information, including your contact details, service location, areas of expertise, identification, and business information where applicable.' },
+  { n: '03', title: 'Verification & Approval', desc: 'The Sherix team reviews every application to help maintain a trusted network of automotive professionals. You’ll be notified once your application has been reviewed.' },
+  { n: '04', title: 'Start Growing Your Business', desc: 'Once approved, you can accept service requests, manage your jobs, build your reputation through customer ratings, and grow your business with Sherix.' },
 ];
 
 const reviews = [
@@ -62,57 +59,42 @@ export function PartnerPage() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20">
           <motion.div initial="hidden" animate="show" variants={stagger(0.12)}>
             <motion.p variants={rise} className="text-xs tracking-[0.25em] uppercase text-white/45 mb-5">
-              Sherix — Become a Service Partner
+              JOIN THE SHERIX NETWORK
             </motion.p>
             <motion.h1
               variants={rise}
               className="text-white max-w-2xl"
               style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.75rem)', fontWeight: 800, lineHeight: 1.06, letterSpacing: '-0.035em' }}
             >
-              Grow your business.<br />
-              <span className="text-red-400">Reach more customers.</span>
+              Power your automotive business with Sherix
             </motion.h1>
             <motion.p
               variants={rise}
               className="mt-5 text-white/60 max-w-lg leading-relaxed"
               style={{ fontSize: '1.05rem' }}
             >
-              Sherix connects skilled roadside service providers with drivers and businesses looking for fast, reliable roadside assistance. Join the platform built to help you succeed.
+              Sherix gives automotive professionals one connected platform to receive service requests, manage jobs, build customer trust, increase earnings, and grow their businesses. Whether you work independently or manage a team, Sherix provides the tools to help you operate more efficiently and serve customers with confidence.
             </motion.p>
             <motion.div variants={rise} className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#apply"
+                href="https://provider.sherix.com"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-full transition-colors"
               >
-                Apply Now <ArrowRight className="w-4 h-4" />
+                Download Provider App <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="#how"
+                href="https://portal.sherix.com"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-full text-white/75 hover:text-white transition-colors"
                 style={{ border: '1px solid rgba(255,255,255,0.18)' }}
               >
-                How it works
+                Register Your Business
               </a>
             </motion.div>
 
-            {/* Glass stat strip */}
-            <motion.div
-              variants={rise}
-              className="mt-12 inline-grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden"
-              style={{ background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.11)' }}
-            >
-              {[
-                { v: '12,000+', l: 'Active providers' },
-                { v: '98%',     l: 'Satisfaction rate' },
-                { v: '< 8 min', l: 'Avg. response time' },
-                { v: '24 / 7',  l: 'Platform availability' },
-              ].map(s => (
-                <div key={s.l} className="px-6 py-4" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                  <div className="text-white font-semibold" style={{ fontSize: '1.3rem', letterSpacing: '-0.02em' }}>{s.v}</div>
-                  <div className="text-white/40 text-xs mt-0.5 whitespace-nowrap">{s.l}</div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
 
@@ -132,10 +114,10 @@ export function PartnerPage() {
                 className="text-gray-900 max-w-xl"
                 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                Six reasons providers choose Sherix.
+                Built to help automotive professionals grow.
               </motion.h2>
               <motion.p variants={rise} className="text-gray-400 text-sm max-w-xs leading-relaxed">
-                Built for professionals who want more work, less admin, and a platform they can trust.
+                Sherix provides more than access to service requests. We build technology that helps automotive professionals manage their work more efficiently, strengthen customer relationships, and grow their businesses through one connected platform.
               </motion.p>
             </div>
 
@@ -185,17 +167,17 @@ export function PartnerPage() {
             {/* Left */}
             <motion.div initial="hidden" whileInView="show" viewport={vp} variants={stagger(0.08)}>
               <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-500/60 mb-5">
-                Who Can Join
+                Who Can Join?
               </motion.p>
               <motion.h2
                 variants={rise}
                 className="text-white"
                 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                Built for qualified roadside professionals.
+                Built for trusted automotive professionals
               </motion.h2>
               <motion.p variants={rise} className="mt-5 text-white/50 text-sm leading-relaxed max-w-md">
-                Sherix welcomes a wide range of automotive and roadside service professionals. If you provide professional vehicle services, there's a place for you on Sherix.
+                Sherix is designed for qualified automotive professionals and businesses committed to delivering reliable, high-quality vehicle services. Whether you work independently or operate an established business, you can apply to join the Sherix Network if your services align with the platform.
               </motion.p>
             </motion.div>
 
@@ -229,7 +211,7 @@ export function PartnerPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <motion.div initial="hidden" whileInView="show" viewport={vp} variants={stagger(0.08)}>
             <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-600 mb-5">
-              How to Become a Partner
+              How It Works
             </motion.p>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-20">
               <motion.h2
@@ -237,10 +219,10 @@ export function PartnerPage() {
                 className="text-gray-900 max-w-xl"
                 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                Five steps to going live on Sherix.
+                Join the Sherix Network in four simple steps.
               </motion.h2>
               <motion.p variants={rise} className="text-gray-400 text-sm max-w-xs leading-relaxed">
-                Simple, structured, and fast. Most providers are approved and active within 48 hours.
+                Applying to join the Sherix Network is straightforward. Complete your registration, submit the required information for verification, and once approved, you’ll be ready to start receiving service requests through the Sherix platform.
               </motion.p>
             </div>
 
@@ -327,24 +309,24 @@ export function PartnerPage() {
             {/* Right — copy */}
             <motion.div initial="hidden" whileInView="show" viewport={vp} variants={stagger(0.09)}>
               <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-600 mb-5">
-                Our Commitment to Quality
+                Verification Standards
               </motion.p>
               <motion.h2
                 variants={rise}
                 className="text-gray-900"
                 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                We work with providers who set the standard.
+                Building a trusted network starts with verification.
               </motion.h2>
               <motion.p variants={rise} className="mt-5 text-gray-500 text-sm leading-relaxed">
-                We work with providers who value quality workmanship, honest communication, and dependable service. Sherix partners are held to the same standard we promise our customers.
+                Every application submitted to Sherix is reviewed before a service provider joins the platform. Our verification process helps maintain service quality, protect customers, and build a trusted network of automotive professionals.
               </motion.p>
               <motion.div variants={rise} className="mt-10 space-y-4">
                 {[
-                  'Quality workmanship on every job',
-                  'Honest, transparent communication with customers',
-                  'Dependable service whenever you accept a request',
-                  'Respect for the Sherix platform and community',
+                  'Identity confirmation: Service providers are required to verify their identity using valid identification before their application can be approved.',
+                  'Business Validation: Registered automotive businesses may be required to provide business registration details and supporting information during the verification process.',
+                  'Professional Information: Applicants provide details about their services, areas of expertise, and operating location to help ensure customers are matched with the right automotive professional.',
+                  'Platform Standards: Every approved service provider is expected to maintain Sherix’s standards for professionalism, customer service, and reliability while using the platform.',
                 ].map(pt => (
                   <div key={pt} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-red-50 border border-red-200 flex items-center justify-center shrink-0 mt-0.5">
@@ -360,47 +342,37 @@ export function PartnerPage() {
         </div>
       </section>
 
-      {/* ─── Partner Testimonials ─── */}
+      {/* ─── Our Standards & FAQ ─── */}
       <section className="py-28 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <motion.div initial="hidden" whileInView="show" viewport={vp} variants={stagger(0.08)}>
             <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-600 mb-5">
-              Partner Stories
+              Our Standards
             </motion.p>
             <motion.h2
               variants={rise}
-              className="text-gray-900 mb-16"
+              className="text-gray-900 mb-4"
               style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
             >
-              In their own words.
+              Every provider represents the Sherix brand.
             </motion.h2>
+            <motion.p variants={rise} className="text-gray-500 text-sm leading-relaxed max-w-3xl">
+              At Sherix, we expect every service provider to deliver professional workmanship, communicate respectfully with customers, arrive on time, and maintain high service standards. Providers who consistently maintain these standards may receive stronger visibility, higher customer ratings, and increased opportunities across the platform.
+            </motion.p>
 
-            <div className="grid md:grid-cols-3 gap-10">
-              {reviews.map((r, i) => (
-                <motion.div
-                  key={r.name}
-                  variants={rise}
-                  className="flex flex-col gap-5 group"
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
-                >
-                  <div
-                    className="flex-1 p-6 rounded-2xl border border-gray-100 group-hover:border-gray-200 group-hover:shadow-lg transition-all duration-300"
-                  >
-                    <p className="text-gray-600 text-sm leading-relaxed">"{r.body}"</p>
-                  </div>
-                  <div className="flex items-center gap-3 px-1">
-                    <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center shrink-0 text-xs font-semibold text-red-600">
-                      {r.name[0]}
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-gray-900">{r.name}</div>
-                      <div className="text-xs text-gray-400">{r.role}</div>
-                    </div>
-                  </div>
-                </motion.div>
+            <motion.div variants={rise} className="mt-10 grid gap-6 md:grid-cols-2">
+              {[
+                { q: 'When will my application be reviewed?', a: 'Every application is reviewed by the Sherix team before a provider is approved. You’ll receive an update once the review process is complete.' },
+                { q: 'Can I reject service requests?', a: 'Yes. Providers may accept or decline requests based on their availability. Consistently declining requests may reduce future job opportunities.' },
+                { q: 'How do I receive payments?', a: 'Payments for completed services are received through the Sherix platform according to Sherix’s payment process.' },
+                { q: 'Can I update my information after joining?', a: 'Yes. Providers can update eligible profile and business information through their provider account.' },
+              ].map(item => (
+                <div key={item.q} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                  <h3 className="text-base font-semibold text-gray-900">{item.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.a}</p>
+                </div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -413,17 +385,17 @@ export function PartnerPage() {
             {/* Left copy */}
             <motion.div initial="hidden" whileInView="show" viewport={vp} variants={stagger(0.09)}>
               <motion.p variants={rise} className="text-xs tracking-[0.22em] uppercase text-red-600 mb-5">
-                Ready to Join Sherix?
+                Ready to Join the Sherix Network?
               </motion.p>
               <motion.h2
                 variants={rise}
                 className="text-gray-900"
                 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}
               >
-                Become part of a growing network of trusted providers.
+                Build the Future of Your Automotive Business
               </motion.h2>
               <motion.p variants={rise} className="mt-5 text-gray-500 text-sm leading-relaxed max-w-md">
-                We look forward to building the future of roadside assistance together. Fill in the application and our team will be in touch within 48 hours.
+                Whether you’re an independent automotive professional or an established business, Sherix provides the tools to help you manage your work, connect with more customers, and grow with confidence. Start your application today and become part of a trusted network of automotive service providers.
               </motion.p>
 
               <motion.div variants={rise} className="mt-10 space-y-3">

@@ -1,14 +1,7 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, MessageSquare, ArrowUp, MapPin, Facebook, Instagram, Twitter, Users, ChevronDown } from 'lucide-react';
+import { Menu, X, MessageSquare, ArrowUp, MapPin, Users, ChevronDown } from 'lucide-react';
 import logoImg from '../../imports/sherixlogo.png';
-function TikTokIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.27 8.27 0 004.84 1.55V6.85a4.85 4.85 0 01-1.07-.16z" />
-    </svg>
-  );
-}
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -80,49 +73,26 @@ export function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
-      {/* Campaign Bar + Nav — sticky together */}
-      <div className="sticky top-0 z-50">
-        {/* Campaign Bar */}
-        <div className="bg-red-600 text-white text-xs">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
-            <div className="flex items-center gap-1.5 text-red-100">
-              <MapPin className="w-3.5 h-3.5 shrink-0" />
-              <span>Accra, Ghana</span>
+      <div className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/90 backdrop-blur-md shadow-[0_1px_0_rgba(15,23,42,0.04)]">
+        <header className={`transition-all duration-300 ${scrolled ? 'shadow-sm shadow-red-100/60' : ''}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center relative">
+            {/* CTA buttons - far left */}
+            <div className="hidden md:flex items-center gap-2 absolute left-4 sm:left-6 lg:left-8">
+              <NavLink to="/partner" className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold text-white bg-red-600 rounded-full hover:bg-red-700 transition-all shadow-sm shadow-red-200/80 hover:shadow-red-200">
+                <Users className="w-3.5 h-3.5" />
+                Become a Service Provider
+              </NavLink>
             </div>
-            <div className="flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="text-red-200 hover:text-white transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="Instagram" className="text-red-200 hover:text-white transition-colors">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="X" className="text-red-200 hover:text-white transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="TikTok" className="text-red-200 hover:text-white transition-colors">
-                <TikTokIcon className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
 
-        {/* Nav */}
-        <header className={`bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md border-b border-gray-100' : 'border-b border-gray-100'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between">
-            {/* Logo */}
-            <NavLink to="/" className="flex items-center shrink-0">
-              <img src={logoImg} alt="Sherix" className="h-30 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
-            </NavLink>
-
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            {/* Desktop nav - centered */}
+            <nav className="hidden md:flex items-center gap-1 mx-auto">
               {navLinks.map(link => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'text-red-600 bg-red-50' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`
+                    `px-3.5 py-2 rounded-full text-xs font-medium tracking-[0.02em] uppercase transition-all ${isActive ? 'text-red-600 bg-red-50 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
                   }
                 >
                   {link.label}
@@ -157,13 +127,10 @@ export function Layout() {
               </div>
             </nav>
 
-            {/* CTA buttons */}
-            <div className="hidden md:flex items-center gap-2">
-              <NavLink to="/partner" className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors shadow-sm shadow-red-200">
-                <Users className="w-3.5 h-3.5" />
-                Become a Service Provider
-              </NavLink>
-            </div>
+            {/* Logo - far right */}
+            <NavLink to="/" className="hidden md:flex items-center shrink-0 py-2 absolute right-4 sm:right-6 lg:right-8">
+              <img src={logoImg} alt="Sherix" className="h-20 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
+            </NavLink>
 
             {/* Mobile toggle */}
             <button
@@ -234,110 +201,83 @@ export function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-[#111827] text-gray-300">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-white p-2 shadow-sm">
+                <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Professional vehicle support</p>
+              </div>
+            </div>
 
-    {/* Top row — logo + help center */}
-    <div className="flex items-center justify-between py-8 border-b border-gray-800">
-      <div className="inline-block bg-white rounded-lg px-3 py-1.5">
-        <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" />
-      </div>
-      <a href="/support" className="text-sm text-gray-400 hover:text-white transition-colors underline underline-offset-4">
-        Visit Help Center
-      </a>
-    </div>
-
-    {/* Middle row — columns + social + app badges */}
-    <div className="py-12 grid grid-cols-2 md:grid-cols-[auto_1fr] gap-12">
-
-      {/* Link columns */}
-      <div className="col-span-2 md:col-span-1 grid grid-cols-2 sm:grid-cols-4 gap-8">
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Company</h2>
-          <ul className="space-y-3">
-            {[['About Us', '/about'], ['Services', '/service'], ['Partner Program', '/partner'], ['Business', '/business']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Support</h2>
-          <ul className="space-y-3">
-            {[['Help Center', '/support'], ['Contact Us', '/contact'], ['Live Chat', '#'], ['FAQ', '/support']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Legal</h2>
-          <ul className="space-y-3">
-            {[['Terms of Service', '/terms'], ['Privacy Policy', '/privacy'], ['Cookies Policy', '/cookies']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-white text-sm font-semibold mb-4">Get the App</h2>
-          <ul className="space-y-3">
-            {[['App Store', '#'], ['Google Play', '#']].map(([l, href]) => (
-              <li key={l}><a href={href} className="text-sm text-gray-400 hover:text-white transition-colors">{l}</a></li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Social icons + app badges */}
-      <div className="col-span-2 md:col-span-1 flex flex-col items-start md:items-end justify-between gap-8">
-        {/* Social icons */}
-        <div className="flex gap-3">
-          {[
-            { label: 'Facebook', href: '#', icon: Facebook },
-            { label: 'Instagram', href: '#', icon: Instagram },
-            { label: 'X', href: '#', icon: Twitter },
-          ].map(s => (
-            <a key={s.label} href={s.href} aria-label={s.label}
-              className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all">
-              <s.icon className="w-4 h-4" />
-            </a>
-          ))}
-          <a href="#" aria-label="TikTok"
-            className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-500 transition-all">
-            <TikTokIcon className="w-4 h-4" />
-          </a>
-        </div>
-
-        {/* Location + app store badges */}
-        <div className="flex flex-col items-start md:items-end gap-4">
-          <div className="flex items-center gap-1.5 text-sm text-gray-400">
-            <MapPin className="w-4 h-4" />
-            <span>Accra, Ghana</span>
+            <NavLink
+              to="/support"
+              className="inline-flex items-center justify-center rounded-full border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm font-medium text-red-100 transition-colors hover:border-red-400 hover:bg-red-500/20 hover:text-white"
+            >
+              Visit Help Centre
+            </NavLink>
           </div>
-          <div className="flex gap-3">
-            {['App Store', 'Google Play'].map(s => (
-              <a key={s} href="#"
-                className="px-4 py-2 border border-gray-700 rounded-lg text-xs text-gray-400 hover:border-gray-500 hover:text-white transition-all">
-                {s}
-              </a>
-            ))}
+
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Company</h2>
+              <ul className="space-y-3 text-sm">
+                <li><NavLink to="/about" className="text-gray-400 transition-colors hover:text-red-400">About</NavLink></li>
+                <li><NavLink to="/service" className="text-gray-400 transition-colors hover:text-red-400">Services</NavLink></li>
+                <li><NavLink to="/partner" className="text-gray-400 transition-colors hover:text-red-400">Join the Sherix Network</NavLink></li>
+                <li><NavLink to="/contact" className="text-gray-400 transition-colors hover:text-red-400">Contact</NavLink></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Support</h2>
+              <ul className="space-y-3 text-sm">
+                <li><NavLink to="/support" className="text-gray-400 transition-colors hover:text-red-400">Help Center</NavLink></li>
+                <li><NavLink to="/faq" className="text-gray-400 transition-colors hover:text-red-400">Frequently Asked Questions</NavLink></li>
+                <li><NavLink to="/support" className="text-gray-400 transition-colors hover:text-red-400">Safety</NavLink></li>
+                <li><NavLink to="/contact" className="text-gray-400 transition-colors hover:text-red-400">Contact Support</NavLink></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Legal</h2>
+              <ul className="space-y-3 text-sm">
+                <li><NavLink to="/terms" className="text-gray-400 transition-colors hover:text-red-400">Terms of Service</NavLink></li>
+                <li><NavLink to="/privacy" className="text-gray-400 transition-colors hover:text-red-400">Privacy Policy</NavLink></li>
+                <li><NavLink to="/cookies" className="text-gray-400 transition-colors hover:text-red-400">Cookie Policy</NavLink></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white">Get the App</h2>
+              <ul className="space-y-3 text-sm">
+                <li><a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer" className="text-gray-400 transition-colors hover:text-red-400">App Store</a></li>
+                <li><a href="https://play.google.com/store" target="_blank" rel="noreferrer" className="text-gray-400 transition-colors hover:text-red-400">Google Play</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <MapPin className="h-4 w-4 text-red-400" />
+              <span>Headquarters</span>
+              <span className="text-gray-500">•</span>
+              <span>Accra, Ghana</span>
+            </div>
+
+            <div className="text-sm text-gray-400">© 2026 Sherix Technologies Ltd. All rights reserved.</div>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <NavLink to="/privacy" className="transition-colors hover:text-red-400">Privacy</NavLink>
+            <NavLink to="/terms" className="transition-colors hover:text-red-400">Terms</NavLink>
+            <NavLink to="/cookies" className="transition-colors hover:text-red-400">Cookies</NavLink>
           </div>
         </div>
-      </div>
-    </div>
-
-    {/* Bottom bar — copyright + legal links */}
-    <div className="py-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p className="text-xs text-gray-500">© 2026 Sherix Technologies Ltd.</p>
-      <ul className="flex items-center gap-6">
-        {[['Privacy', '/privacy'], ['Terms', '/terms'], ['Cookies', '/cookies']].map(([l, href]) => (
-          <li key={l}>
-            <a href={href} className="text-xs text-gray-500 hover:text-white transition-colors">{l}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-  </div>
-</footer>
+      </footer>
       {/* AI Chatbot widget */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
         {chatOpen && (

@@ -10,6 +10,8 @@ import { TermsPage } from './pages/TermsPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { CookiesPage } from './pages/CookiesPage';
 import { ContactPage } from './pages/ContactPage';
+import { FAQPage } from './pages/FAQPage';
+import { WaitlistPage } from './pages/WaitlistPage';
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +28,8 @@ export const router = createBrowserRouter([
       { path: 'terms', Component: TermsPage },
       { path: 'privacy', Component: PrivacyPage },
       { path: 'cookies', Component: CookiesPage },
-      { path: 'contact', Component: ContactPage},
+      { path: 'faq', Component: FAQPage },
+      { path: 'waitlist', Component: WaitlistPage },
     ],
   },
 ]);

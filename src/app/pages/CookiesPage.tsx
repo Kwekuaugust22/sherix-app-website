@@ -5,48 +5,48 @@ const cookieCategories = [
     id: 'essential',
     name: 'Essential Cookies',
     required: true,
-    description: 'These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in, or filling in forms.',
+    description: 'These cookies are necessary for the Sherix website and service platform to function correctly. They are typically set in response to actions you take, such as selecting your preferences, starting a service request, or completing a form.',
     examples: [
-      { name: 'session_id', purpose: 'Maintains your login session', duration: 'Session' },
-      { name: 'csrf_token', purpose: 'Prevents cross-site request forgery', duration: 'Session' },
-      { name: 'consent_preferences', purpose: 'Stores your cookie choices', duration: '1 year' },
+      { name: 'session_id', purpose: 'Maintains your active session and supports secure browsing', duration: 'Session' },
+      { name: 'csrf_token', purpose: 'Helps protect against cross-site request forgery', duration: 'Session' },
+      { name: 'consent_preferences', purpose: 'Stores your cookie and privacy choices', duration: '1 year' },
     ],
   },
   {
     id: 'analytics',
     name: 'Analytics Cookies',
     required: false,
-    description: 'These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.',
+    description: 'These cookies help us understand how effectively our platform is working by measuring traffic, page engagement, and product usage patterns. This helps us improve usability, identify bottlenecks, and refine the customer experience.',
     examples: [
-      { name: '_ga', purpose: 'Google Analytics — distinguishes users', duration: '2 years' },
-      { name: '_gid', purpose: 'Google Analytics — stores page views', duration: '24 hours' },
-      { name: 'amplitude_id', purpose: 'Product analytics — tracks feature usage', duration: '1 year' },
+      { name: 'analytics_session', purpose: 'Tracks overall site usage and session quality', duration: '30 days' },
+      { name: 'page_view_count', purpose: 'Measures page visits and interactions', duration: '30 days' },
+      { name: 'feature_usage', purpose: 'Helps us understand which platform features are most useful', duration: '90 days' },
     ],
-    thirdParty: 'Google Analytics, Amplitude',
+    thirdParty: 'Used only where analytics tools are enabled by Sherix',
   },
   {
     id: 'functional',
     name: 'Functional Cookies',
     required: false,
-    description: 'These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third-party providers whose services we have added to our pages.',
+    description: 'These cookies support site functionality and improve your experience by remembering preferences such as language, region, or recent interactions on the platform.',
     examples: [
-      { name: 'ui_language', purpose: 'Stores your language preference', duration: '1 year' },
-      { name: 'theme_preference', purpose: 'Remembers light/dark mode', duration: '1 year' },
-      { name: 'intercom-session', purpose: 'Support chat session', duration: '1 week' },
+      { name: 'ui_language', purpose: 'Stores your preferred language selection', duration: '1 year' },
+      { name: 'region_preference', purpose: 'Remembers your preferred service region or display settings', duration: '1 year' },
+      { name: 'recent_searches', purpose: 'Supports recent searches or form autofill preferences', duration: '30 days' },
     ],
-    thirdParty: 'Intercom',
+    thirdParty: 'Only where Sherix integrates third-party functionality',
   },
   {
     id: 'marketing',
     name: 'Marketing Cookies',
     required: false,
-    description: 'These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.',
+    description: 'Sherix does not sell personal data. If marketing cookies are enabled in future campaigns, they may be used to understand campaign performance and improve the relevance of promotional content.',
     examples: [
-      { name: '_fbp', purpose: 'Facebook Pixel — ad targeting', duration: '3 months' },
-      { name: '_gcl_au', purpose: 'Google Ads — conversion tracking', duration: '3 months' },
-      { name: 'li_sugr', purpose: 'LinkedIn Ads — user matching', duration: '3 months' },
+      { name: 'campaign_source', purpose: 'Tracks the source of referrals and acquisition campaigns', duration: '90 days' },
+      { name: 'ad_performance', purpose: 'Measures campaign engagement and conversion performance', duration: '90 days' },
+      { name: 'retargeting_token', purpose: 'Supports limited campaign measurement where applicable', duration: '90 days' },
     ],
-    thirdParty: 'Meta, Google Ads, LinkedIn',
+    thirdParty: 'Only where campaign partners are used and consent has been provided',
   },
 ];
 
@@ -79,14 +79,15 @@ export function CookiesPage() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <section className="bg-gray-900 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-gray-400 text-sm font-semibold uppercase tracking-wide">Legal</span>
-          <h1 className="text-4xl font-bold mt-2 mb-2">Cookies Policy</h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mt-4">
-            <span>Last updated: 1 June 2026</span>
-            <span>•</span>
-            <span>GDPR & ePrivacy Compliant</span>
+      <section className="bg-gray-950 text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '26px 26px' }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[300px] bg-red-700/10 rounded-full blur-[110px]" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="text-gray-300 text-xs font-semibold uppercase tracking-[0.22em]">Policies & Legal Documents</span>
+          <h1 className="text-4xl font-bold mt-3 mb-2 leading-tight">Cookies Policy</h1>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-300 mt-4">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Last updated: 11 June 2026</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Privacy & cookie compliance</span>
           </div>
         </div>
       </section>
@@ -94,7 +95,7 @@ export function CookiesPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Intro */}
         <p className="text-gray-600 text-sm leading-relaxed mb-4">
-          This Cookies Policy explains what cookies are, how we use them on the WebApp platform, what third-party cookies we use, and how you can control and delete cookies. For more information about how we handle your personal data, please see our <a href="/privacy" className="text-red-600 hover:underline">Privacy Policy</a>.
+          This Cookies Policy explains what cookies are, how Sherix uses them on our website and platform, which categories of cookies we may use, and how you can control, review, and delete cookies. For more information about how we handle your personal data, please see our <a href="/privacy" className="text-red-600 hover:underline">Privacy Policy</a>.
         </p>
         <p className="text-gray-600 text-sm leading-relaxed mb-10">
           A cookie is a small text file stored on your device when you visit a website. Cookies serve many functions — they remember your preferences, help us analyse site performance, and enable personalised advertising.
@@ -197,7 +198,7 @@ export function CookiesPage() {
         {/* Contact */}
         <div className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
           <h3 className="font-semibold text-gray-900 mb-1">Questions about cookies?</h3>
-          <p className="text-sm text-gray-500">Email us at <a href="mailto:privacy@webapp.com" className="text-red-600 hover:underline">privacy@webapp.com</a> or visit our <a href="/support" className="text-red-600 hover:underline">Support page</a>.</p>
+          <p className="text-sm text-gray-500">Email us at <a href="mailto:support@sherix.com" className="text-red-600 hover:underline">support@sherix.com</a> or visit our <a href="/support" className="text-red-600 hover:underline">Support page</a>.</p>
         </div>
       </div>
     </div>
