@@ -7,7 +7,7 @@ import {
   Navigation, CheckCircle, BatteryWarning, Disc, LifeBuoy, Siren, Truck,
   Plus, Minus, ArrowRight, KeyRound, Activity, Fuel,
 } from 'lucide-react';
-import useEmblaCarousel from 'embla-carousel-react';
+// embla carousel removed for WHY SHERIX
 import { motion, useScroll, useTransform } from 'motion/react';
 import mechBg from '../../imports/herosection.jpg';
 import introBg from '../../imports/photo_2026-06-10_16-05-36.jpg';
@@ -380,33 +380,7 @@ export function HomePage() {
   const bgY      = useTransform(scrollY, [0, 700], [0, -120]);
   const bgOpacity = useTransform(scrollY, [0, 500], [0.9, 0.3]);
 
-  const [whySherixRef, whySherixApi] = useEmblaCarousel({
-    loop: true,
-    align: 'start',
-    slidesToScroll: 1,
-    speed: 18,
-  });
-  const [whySherixIndex, setWhySherixIndex] = useState(0);
-
-  useEffect(() => {
-    if (!whySherixApi) return;
-
-    const onSelect = () => setWhySherixIndex(whySherixApi.selectedScrollSnap());
-    whySherixApi.on('select', onSelect);
-    onSelect();
-
-    const autoplay = window.setInterval(() => {
-      whySherixApi.scrollNext();
-    }, 4500);
-
-    return () => {
-      whySherixApi.off('select', onSelect);
-      window.clearInterval(autoplay);
-    };
-  }, [whySherixApi]);
-
-  const scrollWhySherixPrev = useCallback(() => whySherixApi?.scrollPrev(), [whySherixApi]);
-  const scrollWhySherixNext = useCallback(() => whySherixApi?.scrollNext(), [whySherixApi]);
+  // static WHY SHERIX (no carousel)
 
   return (
     <div>
@@ -472,22 +446,7 @@ export function HomePage() {
               <motion.h2 variants={rise} className="text-white max-w-3xl" style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
                 Vehicle assistance built around trust, transparency, and control.
               </motion.h2>
-              <div className="flex items-center gap-2 self-end">
-                <button
-                  onClick={scrollWhySherixPrev}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:border-red-400 hover:text-red-400"
-                  aria-label="Previous feature"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <button
-                  onClick={scrollWhySherixNext}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 transition hover:border-red-400 hover:text-red-400"
-                  aria-label="Next feature"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
+              
             </div>
             <motion.p variants={rise} className="mt-5 text-white/60 text-sm leading-relaxed max-w-3xl">
               Whether you need routine maintenance, diagnostics, or emergency assistance, finding a trusted service provider shouldn’t be difficult.
@@ -497,35 +456,15 @@ export function HomePage() {
             </motion.p>
           </motion.div>
 
-          <div className="overflow-hidden" ref={whySherixRef}>
-            <div className="flex gap-4 md:gap-5">
-              {whySherixFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={vp2}
-                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className="min-w-full md:min-w-[48%] xl:min-w-[24%] flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-                >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-red-600/15 text-red-500">
-                    <feature.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mb-3 text-lg font-semibold text-white">{feature.title}</h3>
-                  <p className="text-sm leading-relaxed text-white/60">{feature.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {whySherixFeatures.map((feature, index) => (
-              <button
-                key={feature.title}
-                onClick={() => whySherixApi?.scrollTo(index)}
-                aria-label={`Go to ${feature.title}`}
-                className={`h-2.5 rounded-full transition-all ${index === whySherixIndex ? 'w-8 bg-red-500' : 'w-2.5 bg-white/30 hover:bg-white/50'}`}
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {whySherixFeatures.map((feature) => (
+              <div key={feature.title} className="w-full min-h-[180px] rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm flex flex-col items-center justify-center text-center">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-red-600/15 text-red-500">
+                  <feature.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-white">{feature.title}</h3>
+                <p className="text-sm leading-relaxed text-white/60">{feature.desc}</p>
+              </div>
             ))}
           </div>
         </div>
