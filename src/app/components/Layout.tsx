@@ -127,15 +127,21 @@ export function Layout() {
               </div>
             </nav>
 
-            {/* Logo - far right */}
+            {/* Mobile logo - left; hidden on md+ */}
+            <NavLink to="/" className="md:hidden flex items-center shrink-0 py-2 absolute left-4">
+              <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
+            </NavLink>
+
+            {/* Desktop logo - right; hidden on small screens */}
             <NavLink to="/" className="hidden md:flex items-center shrink-0 py-2 absolute right-4 sm:right-6 lg:right-8">
               <img src={logoImg} alt="Sherix" className="h-20 w-auto object-contain" style={{ mixBlendMode: 'multiply' }} />
             </NavLink>
 
-            {/* Mobile toggle */}
+            {/* Mobile toggle - right */}
             <button
-              className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors absolute right-4"
               onClick={() => setMobileOpen(o => !o)}
+              aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -205,9 +211,9 @@ export function Layout() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-3">
-              <div className="rounded-xl bg-white p-2 shadow-sm">
+              <NavLink to="/" className="rounded-xl bg-white p-2 shadow-sm inline-flex items-center">
                 <img src={logoImg} alt="Sherix" className="h-8 w-auto object-contain" />
-              </div>
+              </NavLink>
               <div>
                 <p className="text-sm text-gray-400">Professional vehicle support</p>
               </div>
